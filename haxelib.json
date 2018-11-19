@@ -1,0 +1,14 @@
+{
+	"name": "hxnodejs-sqlite3",
+	"version": "0.0.0",
+	"url": "https://github.com/tong/hxnodejs-sqlite3",
+	"description": "Type definitions for the sqlite3 NPM module",
+	"releasenote": "See CHANGELOG",
+	"tags": ["nodejs","hxnodejs","sqlite","sqlite3","sql"],
+	"license": "MIT",
+	"contributors": ["tong"],
+	"classPath": "src",
+	"dependencies": {
+		"hxnodejs": ""
+	}
+}
