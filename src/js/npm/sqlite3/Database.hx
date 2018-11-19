@@ -6,7 +6,7 @@ import haxe.extern.Rest;
 
 @:jsRequire("sqlite3","Database")
 extern class Database extends EventEmitter<Database> {
-	function new( filename : String ) : Void;
+	function new( filename : String, ?mode : Int, ?callback : Error->Void ) : Void;
 	function close( ?callback : Error->Void ) : Void;
 	function configure( option : Dynamic, value : Dynamic ) : Void;
 	//TODO params/Rest
