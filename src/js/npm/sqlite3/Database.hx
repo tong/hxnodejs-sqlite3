@@ -4,10 +4,16 @@ import js.Error;
 import js.node.events.EventEmitter;
 import haxe.extern.Rest;
 
+/**
+	@see https://github.com/mapbox/node-sqlite3/wiki/API#database
+**/
 @:jsRequire("sqlite3","Database")
 extern class Database extends EventEmitter<Database> {
 
 	/**
+		@param filename  Valid values are filenames, ":memory:" for an anonymous in-memory database and an empty string for an anonymous disk-based database.
+		@param mode  One or more of `OPEN_READONLY`, `OPEN_READWRITE` and `OPEN_CREATE` (default = `OPEN_READWRITE | OPEN_CREATE`).
+		@param callback  Called when the database was opened successfully or when an error occurred.
 	**/
 	function new( filename : String, ?mode : Int, ?callback : Error->Void ) : Void;
 
@@ -20,8 +26,17 @@ extern class Database extends EventEmitter<Database> {
 		Set a configuration option for the database.
 	**/
 	function configure( option : {
+		/**
+			Callback invoked when an SQL statement executes, with a rendering of the statement text.
+		**/
 		@:optional @:native("trace") var trace_:Void->Void;
+		/**
+			Callback invoked every time an SQL statement executes.
+		**/
 		@:optional var profile:Void->Void;
+		/**
+			@see https://www.sqlite.org/c3ref/busy_timeout.html
+		**/
 		@:optional var busyTimeout : Int;
 	}, value : Dynamic ) : Void;
 
@@ -59,6 +74,19 @@ extern class Database extends EventEmitter<Database> {
 	function prepare( sql : String, ?param : Dynamic, ?callback : Error->Void ) : Statement;
 
 	/**
+		Puts the execution mode into serialized.
+		At most one statement object can execute a query at a time.
+		Other statements wait in a queue until the previous statements are executed.
+
+		@see https://github.com/mapbox/node-sqlite3/wiki/Control-Flow#databaseserializecallback
 	**/
-	function serialize( f : Void->Void ) : Void;
+	function serialize( ?callback : Void->Void ) : Void;
+
+	/**
+		Puts the execution mode into parallelized.
+		Queries scheduled will be run in parallel.
+
+		@see https://github.com/mapbox/node-sqlite3/wiki/Control-Flow#databaseparallelizecallback
+	**/
+	function parallelize( ?callback : Void->Void ) : Void;
 }

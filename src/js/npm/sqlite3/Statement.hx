@@ -3,6 +3,9 @@ package js.npm.sqlite3;
 import js.Error;
 import js.node.events.EventEmitter;
 
+/**
+	@see https://github.com/mapbox/node-sqlite3/wiki/API#statement
+**/
 @:jsRequire("sqlite3","Statement")
 extern class Statement extends EventEmitter<Statement> {
 
