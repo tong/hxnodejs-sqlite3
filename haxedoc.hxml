@@ -1,0 +1,6 @@
+--no-output
+-js _
+-xml haxedoc.xml
+-lib hxnodejs-sqlite3
+--macro include('js.npm.Sqlite3')
+--macro include('js.npm.sqlite3')
