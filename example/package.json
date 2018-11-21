@@ -1,0 +1,11 @@
+{
+    "name": "hxnodejs-sqlite3-example",
+    "version": "1.0.0",
+    "description": "Example usage",
+    "license": "MIT",
+    "repository": "https://github.com/tong/hxnodejs-sqlite3.git",
+    "main": "app.js",
+    "dependencies": {
+        "sqlite3": "^4.0.4"
+    }
+}

@@ -16,3 +16,4 @@ install:
 
 script:
   - haxe haxedoc.hxml
+  - haxe --cwd example/ build.hxml
