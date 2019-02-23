@@ -1,8 +1,10 @@
 
+import js.npm.sqlite3.Database;
+
 class App {
 
 	static function main() {
-		var db = new js.npm.sqlite3.Database( ':memory:' );
+		var db = new Database( Database.MEMORY );
 		db.serialize( function() {
 			db.run( "CREATE TABLE lorem (info TEXT)" );
 			var stmt = db.prepare( "INSERT INTO lorem VALUES (?)" );

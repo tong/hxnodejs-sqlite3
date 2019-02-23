@@ -1,14 +1,28 @@
 package js.npm.sqlite3;
 
+import haxe.extern.Rest;
 import js.Error;
 import js.node.events.EventEmitter;
-import haxe.extern.Rest;
+
+@:enum abstract DatabaseEvent(String) to String {
+	var trace_ = "trace";
+	var profile = "profile";
+	var insert = "insert";
+	var update = "update";
+	var delete = "delete";
+}
 
 /**
 	@see https://github.com/mapbox/node-sqlite3/wiki/API#database
 **/
 @:jsRequire("sqlite3","Database")
 extern class Database extends EventEmitter<Database> {
+
+	/**  Anonymous in-memory database  **/
+	public static inline var MEMORY = ":memory:";
+
+	/** Anonymous disk-based database **/
+	public static inline var ANONYMOUS = "";
 
 	/**
 		@param filename  Valid values are filenames, ":memory:" for an anonymous in-memory database and an empty string for an anonymous disk-based database.
@@ -61,6 +75,10 @@ extern class Database extends EventEmitter<Database> {
 		Runs the SQL query with the specified parameters and calls the callback once for each result row.
 	**/
 	function each( sql : String, ?param : Dynamic, ?callback : Error->Dynamic->Void, ?complete : Error->Int->Void ) : Database;
+
+	//TODO: function map() : Database;
+
+	//TODO: function backup() : Backup;
 
 	/**
 		Runs all SQL queries in the supplied string.

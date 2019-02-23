@@ -6,6 +6,6 @@
     "repository": "https://github.com/tong/hxnodejs-sqlite3.git",
     "main": "app.js",
     "dependencies": {
-        "sqlite3": "^4.0.4"
+        "sqlite3": "^4.0.6"
     }
 }
