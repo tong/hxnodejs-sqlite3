@@ -1,7 +1,7 @@
 package js.npm.sqlite3;
 
 import haxe.extern.Rest;
-import js.Error;
+import js.lib.Error;
 import js.node.events.EventEmitter;
 
 @:enum abstract DatabaseEvent(String) to String {
