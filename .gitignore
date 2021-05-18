@@ -2,3 +2,4 @@ example/*.js
 example/*.js.map
 *node_modules*
 haxedoc.xml
+*.zip
