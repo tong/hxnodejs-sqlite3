@@ -107,4 +107,12 @@ extern class Database extends EventEmitter<Database> {
 		@see https://github.com/mapbox/node-sqlite3/wiki/Control-Flow#databaseparallelizecallback
 	**/
 	function parallelize( ?callback : Void->Void ) : Void;
+
+	/**
+	 	Loads a compiled SQLite extension into the database connection object.
+
+		@see https://github.com/mapbox/node-sqlite3/wiki/Extensions
+	**/
+	function loadExtension( path : String, ?cb : Error->Void ) : Void;
+
 }
