@@ -1,6 +1,6 @@
 {
 	"name": "hxnodejs-sqlite3",
-	"version": "0.1.1",
+	"version": "5.0.2",
 	"url": "https://github.com/tong/hxnodejs-sqlite3",
 	"description": "Type definitions for the sqlite3 NPM module",
 	"releasenote": "See CHANGELOG",
