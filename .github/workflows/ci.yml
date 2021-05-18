@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: krdlab/setup-haxe@v1
+        with:
+          haxe-version: 4.2.2
+      - name: Setup
+        run: |
+          haxe --version
+          haxelib dev hxnodejs-sqlite3 .
+          haxelib install hxnodejs
+      - name: Build haxedoc.xml
+        run: haxe haxedoc.hxml
+      - name: Build example application
+        run: |
+          haxe --cwd example build.hxml
