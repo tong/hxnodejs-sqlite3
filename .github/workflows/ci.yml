@@ -24,3 +24,5 @@ jobs:
       - name: Build example application
         run: |
           haxe --cwd example build.hxml
+      - name: Run example application
+        run: node example/app.js
